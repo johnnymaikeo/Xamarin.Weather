@@ -12,7 +12,7 @@ namespace Xamarin.Weather
 		public App ()
 		{
 			// The root page of your application
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new StartTabbedPage());
 		}
 
 		protected override void OnStart ()

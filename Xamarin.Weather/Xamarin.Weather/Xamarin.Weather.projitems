@@ -9,7 +9,12 @@
     <Import_RootNamespace>Xamarin.Weather</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AddCityPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)MainPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ForecastPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StartTabbedPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NowPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PlacesPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SettingsPage.cs" />
   </ItemGroup>
 </Project>
