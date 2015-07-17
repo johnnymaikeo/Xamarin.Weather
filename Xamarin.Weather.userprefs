@@ -1,6 +1,11 @@
 ﻿<Properties StartupItem="Xamarin.Weather\Xamarin.Weather.Droid\Xamarin.Weather.Droid.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.NexusS" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Xamarin.Weather\Xamarin.Weather\ViewModel\AddCityViewModel.cs">
+    <Files>
+      <File FileName="Xamarin.Weather\Xamarin.Weather\ViewModel\AddCityViewModel.cs" Line="7" Column="24" />
+      <File FileName="c:\Users\Johnny\Documents\Visual Studio 2013\Projects\Xamarin.Weather\Xamarin.Weather\Xamarin.Weather\AddCityPage.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

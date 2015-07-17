@@ -16,5 +16,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)NowPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PlacesPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SettingsPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AddCityViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Model\" />
   </ItemGroup>
 </Project>
