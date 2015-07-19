@@ -31,11 +31,10 @@ namespace Xamarin.Weather
             }
         }
 
-        private void LoadCityForecast(City city)
+		private async void LoadCityForecast(City city)
         {
             NowViewModel vm = new NowViewModel();
             await vm.GetForecast(city.Id);
-            this.
 
             Label labelCityName = new Label();
             labelCityName.Text = city.Name;
