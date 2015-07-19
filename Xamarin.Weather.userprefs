@@ -1,4 +1,4 @@
-﻿<Properties StartupItem="Xamarin.Weather\Xamarin.Weather.Droid\Xamarin.Weather.Droid.csproj">
+﻿<Properties StartupItem="Xamarin.Weather/Xamarin.Weather.Droid/Xamarin.Weather.Droid.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.NexusS" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Xamarin.Weather\Xamarin.Weather\ViewModel\AddCityViewModel.cs">
     <Files>

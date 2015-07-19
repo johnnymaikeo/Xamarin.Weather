@@ -31,7 +31,11 @@ namespace Xamarin.Weather
             }
         }
 
+<<<<<<< HEAD
         private async void LoadCityForecast(City city)
+=======
+		private async void LoadCityForecast(City city)
+>>>>>>> origin/master
         {
             NowViewModel vm = new NowViewModel();
             await vm.GetForecast(city.Id);
