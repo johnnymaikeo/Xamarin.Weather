@@ -8,5 +8,6 @@ namespace Xamarin.Weather.Model
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public bool IsMyCity { get; set; }
     }
 }

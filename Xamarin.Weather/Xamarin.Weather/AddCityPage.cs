@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Weather.Model;
 using Xamarin.Weather.ViewModel;
 
 namespace Xamarin.Weather
@@ -17,7 +18,7 @@ namespace Xamarin.Weather
         {
             Label pageTitle = new Label {
                 Text = "Add City",
-                FontSize = 42
+                FontSize = 56
             };
 
             this.EntryCityName = new Entry
@@ -28,6 +29,20 @@ namespace Xamarin.Weather
             this.EntryCityName.TextChanged += CityName_TextChanged;
 
             this.ListViewCities = new ListView();
+
+            this.ListViewCities.ItemTapped += (sender, e) =>
+            {
+                City selectedCity = (City)((ListView)sender).SelectedItem;
+
+                if (App.Cities.Count == 0) 
+                {
+                    selectedCity.IsMyCity = true;
+                }
+
+                App.Cities.Add(selectedCity);
+                // Return to previous page
+                Navigation.PopAsync();
+            };
 
             this.ListViewCities.ItemTemplate = new DataTemplate(() => 
             {
