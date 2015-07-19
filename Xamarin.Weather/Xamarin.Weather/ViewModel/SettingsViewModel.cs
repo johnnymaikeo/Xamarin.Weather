@@ -34,7 +34,14 @@ namespace Xamarin.Weather.ViewModel
                 count++;
             }
 
-            App.Cities.RemoveAt(count);
+            if (city.IsMyCity == true)
+            {
+                App.Cities.RemoveAt(count);
+            } 
+            else
+            {
+
+            }
         }
     }
 }

@@ -31,11 +31,10 @@ namespace Xamarin.Weather
             }
         }
 
-        private void LoadCityForecast(City city)
+        private async void LoadCityForecast(City city)
         {
             NowViewModel vm = new NowViewModel();
             await vm.GetForecast(city.Id);
-            this.
 
             Label labelCityName = new Label();
             labelCityName.Text = city.Name;
@@ -49,26 +48,36 @@ namespace Xamarin.Weather
             Label labelMinima = new Label();
             labelMinima.SetBinding(Label.TextProperty, "Minima");
 
-            StackLayout line = new StackLayout
+            ListView listViewForecast = new ListView();
+            listViewForecast.ItemTemplate = new DataTemplate(() =>
             {
-                Padding = new Thickness(0, 5),
-                Orientation = StackOrientation.Vertical,
-                Children = 
+                return new ViewCell
                 {
-                    labelData,
-                    labelMaxima,
-                    labelMinima
-                }
-            };
+                    View = new StackLayout
+                    {
+                        Padding = new Thickness(0, 5),
+                        Orientation = StackOrientation.Horizontal,
+                        Children = 
+                        {
+                            labelData,
+                            labelMaxima,
+                            labelMinima
+                        }
+                    }
+                };
+            });
 
             this.Content = new StackLayout
             {
                 Children =
                     {
                         labelCityName,
-                        line
+                        listViewForecast
                     }
             };
+
+            listViewForecast.ItemsSource = vm.Forecasts;
+
         }
 
         private City GetMyCity()
