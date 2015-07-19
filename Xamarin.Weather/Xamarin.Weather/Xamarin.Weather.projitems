@@ -12,13 +12,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)AddCityPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ForecastPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\City.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StartTabbedPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NowPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PlacesPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SettingsPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AddCityViewModel.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Model\" />
   </ItemGroup>
 </Project>

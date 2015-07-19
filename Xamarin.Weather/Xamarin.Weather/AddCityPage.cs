@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Weather.ViewModel;
 
@@ -9,7 +10,8 @@ namespace Xamarin.Weather
 {
     class AddCityPage : ContentPage
     {
-        Entry CityName;
+        Entry EntryCityName;
+        ListView ListViewCities;
 
         public AddCityPage()
         {
@@ -18,12 +20,33 @@ namespace Xamarin.Weather
                 FontSize = 42
             };
 
-            this.CityName = new Entry
+            this.EntryCityName = new Entry
             {
                 Placeholder = "City Name",
             };
 
-            this.CityName.TextChanged += CityName_TextChanged;
+            this.EntryCityName.TextChanged += CityName_TextChanged;
+
+            this.ListViewCities = new ListView();
+
+            this.ListViewCities.ItemTemplate = new DataTemplate(() => 
+            {
+                Label labelCityName = new Label();
+                labelCityName.SetBinding(Label.TextProperty, "Name");
+
+                return new ViewCell
+                {
+                    View = new StackLayout
+                    {
+                        Padding = new Thickness(0, 5),
+                        Orientation = StackOrientation.Horizontal,
+                        Children = 
+                        {
+                            labelCityName
+                        }
+                    }
+                };
+            });
 
             this.Content = new StackLayout
             {
@@ -32,7 +55,8 @@ namespace Xamarin.Weather
                 Children =
                 {
                     pageTitle,
-                    this.CityName
+                    this.EntryCityName,
+                    this.ListViewCities
                 }
             };
 
@@ -46,11 +70,13 @@ namespace Xamarin.Weather
             this.ToolbarItems.Add(cancelToolbarItem);
         }
 
-        public void CityName_TextChanged(object sender, TextChangedEventArgs e)
+        public async void CityName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (this.CityName.Text.Length >= 3) { 
+            if (this.EntryCityName.Text.Length >= 3)
+            { 
                 AddCityViewModel vm = new AddCityViewModel();
-                vm.GetCityList(this.CityName.Text);
+                await vm.GetCityList(this.EntryCityName.Text);
+                this.ListViewCities.ItemsSource = vm.Cities;
             }
         }
     }

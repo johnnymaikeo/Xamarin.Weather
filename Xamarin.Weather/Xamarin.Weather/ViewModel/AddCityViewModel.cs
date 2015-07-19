@@ -6,33 +6,46 @@ using Newtonsoft.Json;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Net.Http;
+using System.Xml.Linq;
+using System.Linq;
+using Xamarin.Weather.Model;
 
 namespace Xamarin.Weather.ViewModel
 {
-    class AddCityViewModel
+    public class AddCityViewModel
     {
-        public async void GetCityList(string name)
+        public List<City> Cities { get; set; }
+
+        public async Task GetCityList(string name)
         {
             await FetchCitiesAsync(name);
         }
 
         public async Task FetchCitiesAsync(string name)
         {
-            var url = string.Format("http://api.openweathermap.org/data/2.5/find?q={0}&type=like&sort=name", name);
-            
-            // Create an HTTP web request using the URL
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
-            request.ContentType = "application/json";
-            request.Method = "GET";
+            var url = string.Format("http://servicos.cptec.inpe.br/XML/listaCidades?city={0}", name);
 
-            // Send the request to the server and wait for the response
-            using (WebResponse response = await request.GetResponseAsync())
+            try
             {
-                // Get a stream representation of the HTTP web response
-                using (Stream stream = response.GetResponseStream())
-                {
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = await client.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+                string responseBody = string.Empty;
+                
+                XElement xml = XElement.Parse(await response.Content.ReadAsStringAsync());
 
-                }
+                Cities = new List<City>();
+
+                Cities = (from l in xml.Descendants("cidade")
+                              select new City {
+                                Id = Convert.ToInt32(l.Element("id").Value),
+                                Name = l.Element("nome").Value
+                              }).ToList();
+            }
+            catch (HttpRequestException e) 
+            { 
+                // Error
             }
         }
     }
