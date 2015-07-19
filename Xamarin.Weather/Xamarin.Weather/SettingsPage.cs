@@ -36,7 +36,7 @@ namespace Xamarin.Weather
                 StackLayout line = new StackLayout
                 {
                     Padding = new Thickness(0, 5),
-                    Orientation = StackOrientation.Vertical,
+                    Orientation = StackOrientation.Horizontal,
                     Children =
                     {
                         labelCityName,
