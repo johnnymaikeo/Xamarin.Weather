@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ForecastPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\City.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\CityForecast.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\PlacesWeather.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StartTabbedPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NowPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PlacesPage.cs" />
