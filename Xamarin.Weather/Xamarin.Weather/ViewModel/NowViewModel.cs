@@ -24,7 +24,7 @@ namespace Xamarin.Weather.ViewModel
 
         private async Task FetchForecastAsync(int Id)
 		{
-			var url = string.Format("http://servicos.cptec.inpe.br/XML/cidade/{0}/previsao.xml", Convert.ToString(Id));
+            var url = string.Format("http://servicos.cptec.inpe.br/XML/cidade/7dias/{0}/previsao.xml", Convert.ToString(Id));
 			
             try
 			{

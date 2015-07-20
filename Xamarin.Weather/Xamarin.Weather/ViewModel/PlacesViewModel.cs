@@ -16,7 +16,7 @@ namespace Xamarin.Weather.ViewModel
     {
         public List<CityForecast> Forecasts { get; set; }
 
-        public async Task GetForecast(int Id)
+        public async void GetForecast(int Id)
         {
             await FetchForecastAsync(Id);
         }

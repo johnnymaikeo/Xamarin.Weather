@@ -25,7 +25,7 @@ namespace Xamarin.Weather
             }
         }
 
-        private async void LoadForecastForMyPlaces()
+        private void LoadForecastForMyPlaces()
         {
             List<StackLayout> listOfListViews = new List<StackLayout>();
 
@@ -34,75 +34,53 @@ namespace Xamarin.Weather
             foreach (City c in App.Cities)
             {
                 PlacesViewModel vm = new PlacesViewModel();
-                await vm.GetForecast(c.Id);
+                vm.GetForecast(c.Id);
 
                 Label labelCityName = new Label
                 {
                     Text = c.Name
                 };
 
-                Label labelFirstDate = new Label
-                {
-                    Text = vm.Forecasts[0].Dia
-                };
-
-                Label labelFirstMin = new Label
-                {
-                    Text = vm.Forecasts[0].Minima
-                };
-
-                Label labelFirstMax = new Label
-                {
-                    Text = vm.Forecasts[0].Maxima
-                };
-
-                Label labelSecondDate = new Label
-                {
-                    Text = vm.Forecasts[1].Dia
-                };
-
-                Label labelSecondMin = new Label
-                {
-                    Text = vm.Forecasts[1].Minima
-                };
-
-                Label labelSecondMax = new Label
-                {
-                    Text = vm.Forecasts[1].Dia
-                };
-
-                StackLayout stackLayoutFirstDay = new StackLayout 
-                {
-                    Orientation = StackOrientation.Horizontal,
-                    Children = 
-                    {
-                        labelFirstDate,
-                        labelFirstMin,
-                        labelFirstMax,
-                    }
-                };
-
-                StackLayout stackLayoutSecondDay = new StackLayout
-                {
-                    Orientation = StackOrientation.Horizontal,
-                    Children = 
-                    {
-                        labelSecondDate,
-                        labelSecondMin,
-                        labelSecondMax
-                    }
-                };
-
                 stackLayout = new StackLayout
                 {
                     Spacing = 10,
-                    Orientation = StackOrientation.Horizontal,
+                    Orientation = StackOrientation.Vertical,
                     VerticalOptions = LayoutOptions.End,
                     Children = 
                     {
                         labelCityName,
-                        stackLayoutFirstDay,
-                        stackLayoutSecondDay,
+                        new StackLayout 
+                        {
+                            Orientation = StackOrientation.Horizontal,
+                            Children = 
+                            {
+                                new Label {
+                                    Text = vm.Forecasts[0].Dia
+                                },
+                                new Label {
+                                    Text = vm.Forecasts[0].Minima
+                                },
+                                new Label {
+                                    Text = vm.Forecasts[0].Maxima
+                                },
+                            }
+                        },
+                        new StackLayout
+                        {
+                            Orientation = StackOrientation.Horizontal,
+                            Children = 
+                            {
+                                new Label {
+                                    Text = vm.Forecasts[1].Dia
+                                },
+                                new Label {
+                                    Text = vm.Forecasts[1].Minima
+                                },
+                                new Label {
+                                    Text = vm.Forecasts[1].Maxima
+                                },
+                            }
+                        },
                     }
                 };
 

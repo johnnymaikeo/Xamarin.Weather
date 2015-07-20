@@ -39,18 +39,18 @@ namespace Xamarin.Weather
             Label labelCityName = new Label();
             labelCityName.Text = city.Name;
 
-            Label labelData = new Label();
-            labelData.SetBinding(Label.TextProperty, "Dia");
-
-            Label labelMaxima = new Label();
-            labelMaxima.SetBinding(Label.TextProperty, "Maxima");
-
-            Label labelMinima = new Label();
-            labelMinima.SetBinding(Label.TextProperty, "Minima");
-
             ListView listViewForecast = new ListView();
             listViewForecast.ItemTemplate = new DataTemplate(() =>
             {
+                Label labelData = new Label();
+                labelData.SetBinding(Label.TextProperty, "Dia");
+
+                Label labelMaxima = new Label();
+                labelMaxima.SetBinding(Label.TextProperty, "Maxima");
+
+                Label labelMinima = new Label();
+                labelMinima.SetBinding(Label.TextProperty, "Minima");
+
                 return new ViewCell
                 {
                     View = new StackLayout
@@ -66,6 +66,8 @@ namespace Xamarin.Weather
                     }
                 };
             });
+
+            listViewForecast.BindingContext = vm.Forecasts;
 
             this.Content = new StackLayout
             {

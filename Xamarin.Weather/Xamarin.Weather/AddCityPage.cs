@@ -75,14 +75,6 @@ namespace Xamarin.Weather
                 }
             };
 
-            ToolbarItem cancelToolbarItem = new ToolbarItem();
-            cancelToolbarItem.Text = "Cancel";
-            cancelToolbarItem.Command = new Command(() =>
-            {
-                Navigation.PopAsync();
-            });
-
-            this.ToolbarItems.Add(cancelToolbarItem);
         }
 
         public async void CityName_TextChanged(object sender, TextChangedEventArgs e)

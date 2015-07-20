@@ -71,13 +71,6 @@ namespace Xamarin.Weather
                 }
             };
 
-            ToolbarItem settingsToolbarItem = new ToolbarItem();
-            settingsToolbarItem.Text = "Return";
-			settingsToolbarItem.Icon = "signerror.png";
-            settingsToolbarItem.Command = new Command(() =>
-            {
-                Navigation.PopAsync();
-            });
 
             ToolbarItem addToobarItem = new ToolbarItem();
             addToobarItem.Text = "Add City";
@@ -88,7 +81,6 @@ namespace Xamarin.Weather
                 Navigation.PushAsync(new AddCityPage());
             });
 
-            this.ToolbarItems.Add(settingsToolbarItem);
             this.ToolbarItems.Add(addToobarItem);
         }
 
