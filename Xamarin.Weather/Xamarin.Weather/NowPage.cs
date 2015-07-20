@@ -31,11 +31,7 @@ namespace Xamarin.Weather
             }
         }
 
-<<<<<<< HEAD
         private async void LoadCityForecast(City city)
-=======
-		private async void LoadCityForecast(City city)
->>>>>>> origin/master
         {
             NowViewModel vm = new NowViewModel();
             await vm.GetForecast(city.Id);
@@ -44,7 +40,7 @@ namespace Xamarin.Weather
             labelCityName.Text = city.Name;
 
             Label labelData = new Label();
-            labelData.SetBinding(Label.TextProperty, "Data");
+            labelData.SetBinding(Label.TextProperty, "Dia");
 
             Label labelMaxima = new Label();
             labelMaxima.SetBinding(Label.TextProperty, "Maxima");
